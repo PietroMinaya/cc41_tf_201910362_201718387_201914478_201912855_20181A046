@@ -10,6 +10,16 @@
 - La ubicacion de cada Almacen y Casa estara representado por un punto que se encuentra dentro de la ciudad
 - Cada dataset sera guardado en un archivo csv
 ### Generacion del Data Set de Almacenes
+- Para generar el data set de los almacenes vamos a usar una funcion en python la cual nos va a retornar una lista de listas, estas listas van a contener 2 elementos [x , y] los cuales me representan a las coordenadas x e y dentro del plano cartesiano respectivamente.
+```python
+%%file almacenes.py
+import numpy as np
+import numpy.random as npr
+
+def generar_almacenes(cantidad):
+  almacenes = npr.randint(0, 2000, (cantidad, 2), dtype=np.int)
+  return almacenes
+```
 ### Generacion del Data Set de Casas
 - La generacion del data set de las casas sera por medio de una funcion, la cual me retornara una lista de listas, estas listas seran los puntos dentro del grafo
 ```python
