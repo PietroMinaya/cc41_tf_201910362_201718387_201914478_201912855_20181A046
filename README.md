@@ -157,4 +157,4 @@ Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas 
 |  12 | x |   |   |   |   |
 |  13 | x |   |   |   |   |
 ## Videos de Exposicion
-- Trabajo Parcial:
+- Trabajo Parcial: [https://youtu.be/Q-11WAOT0Pg](https://youtu.be/Q-11WAOT0Pg)
