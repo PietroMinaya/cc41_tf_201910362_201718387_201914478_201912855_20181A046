@@ -87,6 +87,12 @@ np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", co
 ## Algoritmos
 ### Dana Vallejos
 ### Pietro Minaya
+Topic | Desc
+-|-
+Autor | Pietro Minaya
+Técnica principal | Divide y Venceras
+
+Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas, ya que por ejemplo para resolver el VRP con 4 zonas debo reslver el VRP de 2 zonas, asi hasta llegar al caso base que seria resolver el VRP de 1 zona y con ello aplicar un algoritmo de pathing que puede ser Djikstra para poder determinar la ruta mas corta para poder unir una zona, y asi para todas las zonas. La complejidad esperada es de: O(|A| log |V|)*|V|
 ### Adrian Chavez
 ### Raque Chavez
 ### Bryan Vela
