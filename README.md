@@ -10,6 +10,7 @@
 - La ubicacion de cada Almacen y Casa estara representado por un punto que se encuentra dentro de la ciudad
 - Cada dataset sera guardado en un archivo csv
 ### Generacion del Data Set de Almacenes
+### Generacion del Data Set de Casas
 - La generacion del data set de las casas sera por medio de una funcion, la cual me retornara una lista de listas, estas listas seran los puntos dentro del grafo
 ```python
 %%file casas.py
