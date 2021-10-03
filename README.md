@@ -3,7 +3,7 @@
 - Dana Brigitte Vallejos Nesteres - U201910362
 - Pietro Gerardo Minaya Mundines - U201718387
 - Adrian  Chavez
-- Bryan Vela
+- Bryan Deison Vela Alvarado - U20181A046
 - Raquel Chavez
 ## Generacion del Data Set
 - Para el problema VRP en su version de multiples puntos de distribución, vamos a requerir generar 2 data sets diferentes: Almacenes y Casas.
