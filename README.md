@@ -4,7 +4,7 @@
 - Pietro Gerardo Minaya Mundines - U201718387
 - Adrián Amir Chávez Berrocal-U201912855
 - Bryan Deison Vela Alvarado - U20181A046
-- Raquel Chavez
+- Raquel Silvia Chávez Cruz - U201914478
 ## Generacion del Data Set
 - Para el problema VRP en su version de multiples puntos de distribución, vamos a requerir generar 2 data sets diferentes: Almacenes y Casas.
 - La ubicacion de cada Almacen y Casa estara representado por un punto que se encuentra dentro de la ciudad
