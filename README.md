@@ -31,7 +31,24 @@ def generarCasas(cantidad):
   casas = npr.randint(0, 2000, (cantidad, 2), dtype=np.int)
   return casas
 ```
-### Verificacion de puntos Duplicados
+### Verificacion de los puntos duplicados
+- Para verificar que no existan puntos duplicados lo que haremos es primero obtener las 2 listas de puntos con las funciones previamente creadas. Despues, vamos a verificar si algun punto que este dentro de la lista de casas se encuentra dentro de la lista de almacenes, en caso se encuentre generaremos un nuevo punto hasta que no se duplique. Una vez que ambas listas esten sin repeticiones procederemos a generar los archivos csv
+```python
+%%file generacion.py
+import casas as c
+import almacenes as a
+import numpy as np
+import numpy.random as npr
+
+casas = c.generarCasas(2500)
+almacenes = a.generar_almacenes(200)
+for i, _ in enumerate(casas):
+  while casas[i] in almacenes:
+    casas[i] = npr.randint(0, 2000, (1, 2), dtype=np.int)
+np.savetxt('casas.csv', casas, fmt="%i", delimiter=",", header="x,y", comments="")
+np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", comments="")
+```
+
 ## Vehiculos de Entrega
 ## Espacio de Busqueda
 ### Espacio Inicial
