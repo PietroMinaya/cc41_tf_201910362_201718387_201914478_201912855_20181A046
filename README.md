@@ -5,6 +5,11 @@
 - Adrián Amir Chávez Berrocal-U201912855
 - Bryan Deison Vela Alvarado - U20181A046
 - Raquel Silvia Chávez Cruz - U201914478
+## Introducción
+- La complejidad de un algoritmo es la cantidad de tiempo que tarda un algoritmo en ejecutarse, en función de la longitud de la entrada. Mide el tiempo necesario para ejecutar cada instrucción de código en un algoritmo. Esto nos ayuda a comparar entre la efectividad de un algoritmo y otro, y decidir cuál es el que nos conviene implementar. En el presente trabajo buscaremos resolver el problema de enrutamiento de vehículos o VRP tomando en cuenta variables como el tiempo y el costo de entrega y optando por la mejor solución según lo analizado.
+
+## Descripción del problema
+- El problema que se busca resolver es el enrutamiento de vehículos o VRP. El VRP es una constante en el negocio de entregas. Sucede debido a las limitaciones de entrega y recursos que enfrentan las empresas de reparto al idear rutas de vehículos de costo mínimo. Con la propagación masiva de COVID-19, las empresas de entrega están manejando mayores volúmenes de entrega. El repentino aumento en las entregas ha hecho que el problema de enrutamiento de vehículos sea bastante difícil de resolver. Por eso, el objetivo de este proyecto es resolverlo de tal modo que se puedan reducir los costos operativos y mejorar la calidad de los servicios de entrega.
 ## Generacion del Data Set
 - Para el problema VRP en su version de multiples puntos de distribución, vamos a requerir generar 2 data sets diferentes: Almacenes y Casas.
 - La ubicacion de cada Almacen y Casa estara representado por un punto que se encuentra dentro de la ciudad
