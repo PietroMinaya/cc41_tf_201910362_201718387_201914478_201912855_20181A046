@@ -95,6 +95,12 @@ Técnica principal | Divide y Venceras
 Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas, ya que por ejemplo para resolver el VRP con 4 zonas debo reslver el VRP de 2 zonas, asi hasta llegar al caso base que seria resolver el VRP de 1 zona y con ello aplicar un algoritmo de pathing que puede ser Djikstra para poder determinar la ruta mas corta para poder unir una zona, y asi para todas las zonas. La complejidad esperada es de: O(|A| log |V|)*|V|
 ### Adrian Chavez
 ### Raque Chavez
+Topic | Desc
+-|-
+Autor | Raquel Chavez
+Técnica principal | Fuerza Bruta
+
+Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas por medio de un algoritmo de fuerza bruta que mida todas las distancias entre todos los puntos de los almacenes y las casas.  Una vez haiga asignado a cada casa a un podria ejecutar un algoritmo de BFS el cual me retorne la ruta mas corta para unir ese "sub grafo". La complejidad esperada seria de 0(|V|^3)
 ### Bryan Vela
 ## Reporte de Actividades
 ### Leyenda de Milestones
