@@ -90,6 +90,7 @@ Topic | Desc
 -|-
 Autor | Dana vallejos
 Técnica principal | Backtracking
+
 Mi idea para resolver este problema es medir las distancias más cortas entre puntos (entre el almacén y los puntos de entrega) y en caso sobrepase una distancia, saltarnos ese punto de entrega y asignarlo al siguiente almacén más cercano. Una vez que llega a zonear todo, se aplica el algoritmo bfs y así unir toda la zona y resolver el problema. La complejidad esperada es de: O (|A|*|V|2)
 ### Pietro Minaya
 Topic | Desc
