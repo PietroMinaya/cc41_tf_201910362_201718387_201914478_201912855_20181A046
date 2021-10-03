@@ -114,6 +114,11 @@ Técnica principal | Fuerza Bruta
 
 Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas por medio de un algoritmo de fuerza bruta que mida todas las distancias entre todos los puntos de los almacenes y las casas.  Una vez haiga asignado a cada casa a un podria ejecutar un algoritmo de BFS el cual me retorne la ruta mas corta para unir ese "sub grafo". La complejidad esperada seria de 0(|V|^3)
 ### Bryan Vela
+Topic | Desc
+-|-
+Autor | Bryan Vela
+Técnica principal | Backtracking
+La forma en la cual voy a plantear el problema es asignar a cada casa un almacen, con un algortimo que le asignara un almacen a cada casa que este en un radio de 20 km a la redonda, las casas que queden sobrando se le asignara al almacen mas cercano, una vez ya a todas las casas le haiga asignado un almacen voy a correr el algoritmo de Djikstra para unir todas lascasas al almacen y asi obtener la ruta mas corta que una a todos los puntos. La complejidad esperada es de: O (|A|*|V|2)
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
