@@ -50,6 +50,20 @@ np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", co
 ```
 
 ## Vehiculos de Entrega
+ - Es un elemento importante en la resolucion del VRP ya que estos nos determinaran el coste que existe entre las rutas.
+ - Despues de una investigacion con distintas fuentes, las caracteristicas mas importantes son:
+	 1. Capacidad de carga del vehículo
+	 2. Costo por  unidad recorrida
+### Capacidad de carga
+- La capacidad de carga promedio de los vehiculos de transporte de alimentos es de 20 toneladas
+### Costo por unidad recorrida
+- El costo por unidad recorrida depende de muchos factores, pero para simplificar el problema las vamos a resumir en dos:
+	1. Costo del combustible
+	2. Combustible consumido por unidad recorrida
+- Para el costo del combustible, normalmente se usa el Gasohol 90 que en el mercado actual esta costando S/.15.00 el galon
+- En promedio estos vehiculos consumen cerca de 0.005 a 0.01 galones por unidad recorrida, esto depende de el tipo de terreno y la velocidad a la que viaja, que por motivos de simplificación del problema asumiremos que los vehiculos viajaran a una velocidad constante de 1 unidad por segundo y el terreno es liso, por lo que nuestros vehiculos consumiran  0.005 galones por unidad recorrida.
+- Considerando que el costo del galon es de S/.15.00 y nos cuesta recorrer una unidad 0.005 galones, tendriamos un costo total de: S/.0.075 por unidad recorrida.
+
 ## Espacio de Busqueda
 ### Espacio Inicial
 ### Estado Final
