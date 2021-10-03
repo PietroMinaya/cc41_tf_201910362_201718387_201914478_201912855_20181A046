@@ -99,6 +99,11 @@ Técnica principal | Divide y Venceras
 
 Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas, ya que por ejemplo para resolver el VRP con 4 zonas debo reslver el VRP de 2 zonas, asi hasta llegar al caso base que seria resolver el VRP de 1 zona y con ello aplicar un algoritmo de pathing que puede ser Djikstra para poder determinar la ruta mas corta para poder unir una zona, y asi para todas las zonas. La complejidad esperada es de: O(|A| log |V|)*|V|
 ### Adrian Chavez
+Topic | Desc
+-|-
+Autor | Adrián Chávez
+Técnica principal | Backtracking
+Mi idea para resolver la problemática planteada es calcular la distancia más corta entre los nodos, más específico, entre los almacenes y los puntos de entrega. En caso un punto de entrega sobrepase el límite establecido, se salta ese nodo y se asigna al almacén más cercano y, de esta manera, se cubren todos los puntos para aplicar el algoritmo de orden topológico y se puedan unir todas las zonas para tener un panorama completo y resuelto del problema. La complejidad esperada es de: O (|A|*(|V|^2))
 ### Raque Chavez
 Topic | Desc
 -|-
