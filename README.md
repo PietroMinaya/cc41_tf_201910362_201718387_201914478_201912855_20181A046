@@ -5,6 +5,21 @@
 - Adrian  Chavez
 - Bryan Vela
 - Raquel Chavez
+## Generacion del Data Set
+### Generacion del Data Set de Almacenes
+### Generacion del Data Set de Puntos de Entrega
+### Verificacion de puntos Duplicados
+## Vehiculos de Entrega
+## Espacio de Busqueda
+### Espacio Inicial
+### Estado Final
+### Transiciones
+## Algoritmos
+### Dana Vallejos
+### Pietro Minaya
+### Adrian Chavez
+### Raque Chavez
+### Bryan Vela
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
@@ -47,3 +62,5 @@
 |  11 |   |   | x |   |   |
 |  12 | x |   |   |   |   |
 |  13 | x |   |   |   |   |
+## Videos de Exposicion
+- Trabajo Parcial:
