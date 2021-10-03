@@ -6,6 +6,9 @@
 - Bryan Vela
 - Raquel Chavez
 ## Generacion del Data Set
+- Para el problema VRP en su version de multiples puntos de distribución, vamos a requerir generar 2 data sets diferentes: Almacenes y Casas.
+- La ubicacion de cada Almacen y Casa estara representado por un punto que se encuentra dentro de la ciudad
+- Cada dataset sera guardado en un archivo csv
 ### Generacion del Data Set de Almacenes
 ### Generacion del Data Set de Puntos de Entrega
 ### Verificacion de puntos Duplicados
