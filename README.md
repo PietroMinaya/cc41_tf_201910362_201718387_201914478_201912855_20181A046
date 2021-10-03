@@ -69,10 +69,21 @@ np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", co
 - En promedio estos vehiculos consumen cerca de 0.005 a 0.01 galones por unidad recorrida, esto depende de el tipo de terreno y la velocidad a la que viaja, que por motivos de simplificación del problema asumiremos que los vehiculos viajaran a una velocidad constante de 1 unidad por segundo y el terreno es liso, por lo que nuestros vehiculos consumiran  0.005 galones por unidad recorrida.
 - Considerando que el costo del galon es de S/.15.00 y nos cuesta recorrer una unidad 0.005 galones, tendriamos un costo total de: S/.0.075 por unidad recorrida.
 
-## Espacio de Busqueda
-### Espacio Inicial
-### Estado Final
-### Transiciones
+
+##  Espacio de Busqueda
+- El espacio de busqueda es el dominio por el cual un algoritmo busca dar una solución.
+-  Para el presente problema, primero debemos definir los elementos que van a afectar nuestro espacio de búsqueda y estos son:
+	1. Ciudad: Representado por un grafo del tipo grilla de 2000x2000
+	2. Almacenes y Casas: Reprresentados por un nodo del grafo
+	3. Vehiculos de Transporte
+### Estado Inicial
+- Es el estado en el que va a comenzar a correr nuestro algoritmo, en el problema VRP sera el siguiente:
+![enter image description here](http://memetic-computing.org/lescas/sites/all/images/img149.jpg)
+### Estado Final:
+- Es el estado objetivo, al que debe llegar nuestro algoritmo, para nuestro problema sera el siguiente:
+![enter image description here](http://myweb.sabanciuniv.edu/msadati/files/2021/03/MDVRP-p08.png)
+### Estados Transitorios
+- Son los estados intermedios por los cuales van a pasar desde el estado inicial al estado final.
 ## Algoritmos
 ### Dana Vallejos
 ### Pietro Minaya
