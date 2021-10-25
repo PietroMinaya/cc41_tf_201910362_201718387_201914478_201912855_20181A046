@@ -120,6 +120,10 @@ Autor | Bryan Vela
 Técnica principal | Backtracking
 
 La forma en la cual voy a plantear el problema es asignar a cada casa un almacen, con un algortimo que le asignara un almacen a cada casa que este en un radio de 20 km a la redonda, las casas que queden sobrando se le asignara al almacen mas cercano, una vez ya a todas las casas le haiga asignado un almacen voy a correr el algoritmo de Djikstra para unir todas lascasas al almacen y asi obtener la ruta mas corta que una a todos los puntos. La complejidad esperada es de: O (|A|*|V|2)
+## Elaboracion del Grafo
+### Lectura del CSV del Dataset y generacion del plot de la ciudad
+### Generacion de la Ciudad
+### Generacion del Grafo de la Ciudad
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
