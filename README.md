@@ -162,5 +162,9 @@ La forma en la cual voy a plantear el problema es asignar a cada casa un almacen
 |  11 |   |   | x |   |   |
 |  12 | x |   |   |   |   |
 |  13 | x |   |   |   |   |
+|  14 | x | x | x | x | x |
+|  15 |   |   |   | x | x |
+|  16 |   | x | x |   |   |
+|  17 | x |   |   |   |   |
 ## Videos de Exposicion
 - Trabajo Parcial: [https://youtu.be/Q-11WAOT0Pg](https://youtu.be/Q-11WAOT0Pg)
