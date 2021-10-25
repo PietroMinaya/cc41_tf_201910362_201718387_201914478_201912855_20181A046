@@ -20,3 +20,19 @@ plt.figure(figsize=(15, 15))
 plt.scatter(x,y, 2, c="red")
 plt.scatter(x2,y2, 2, c="blue")
 plt.show()
+
+def write_csv(headers, fields, filename):
+  with open(filename, 'w') as f:   
+    write = csv.writer(f)
+    if headers != None: write.writerow(headers)
+    write.writerows(fields)
+
+for i, _ in enumerate(almacenes):
+  almacenes[i].append("A")
+for i, _ in enumerate(casas):
+  casas[i].append("C")
+city = list()
+city.extend(almacenes)
+city.extend(casas)
+city.sort(key = lambda x: (x[0], x[1]))
+write_csv(['x', 'y', 'type'], city, 'city.csv')
