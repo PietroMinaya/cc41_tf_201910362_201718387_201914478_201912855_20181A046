@@ -146,6 +146,10 @@ La forma en la cual voy a plantear el problema es asignar a cada casa un almacen
 |  11 | Algoritmo de Bryan Vela | 1 |
 |  12 | Reporte de Actividades | 1 |
 |  13 | Video en Youtube del Github  | 1 |
+|  14 | Elaboracion del grafo  | 2 |
+|  15 | Lectura del csv y generacion del plot del grafo  | 2 |
+|  16 | Generacion de la ciudad con los datos ordenados  | 2 |
+|  17 | Elaboracion del grafo  | 2 |
 ### Tabla de Responsabilidades
 | # Issue  |  Pietro  |  Dana |  Bryan |  Raquel | Adrian |
 |---|---|---|---|---|---|
