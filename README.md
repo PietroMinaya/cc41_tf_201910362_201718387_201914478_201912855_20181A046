@@ -122,8 +122,54 @@ Técnica principal | Backtracking
 La forma en la cual voy a plantear el problema es asignar a cada casa un almacen, con un algortimo que le asignara un almacen a cada casa que este en un radio de 20 km a la redonda, las casas que queden sobrando se le asignara al almacen mas cercano, una vez ya a todas las casas le haiga asignado un almacen voy a correr el algoritmo de Djikstra para unir todas lascasas al almacen y asi obtener la ruta mas corta que una a todos los puntos. La complejidad esperada es de: O (|A|*|V|2)
 ## Elaboracion del Grafo
 ### Lectura del CSV del Dataset y generacion del plot de la ciudad
+``` py
+def read_csv(filename):
+  csv_file = list()
+  with open(filename) as File:
+    reader = csv.reader(File, delimiter=',', quotechar=',', quoting=csv.QUOTE_MINIMAL)
+    for row in reader:
+        if row[0] != 'x':
+          row[0], row[1] = int(row[0]), int(row[1])
+          csv_file.append(row)
+  csv_file.sort(key = lambda x: (x[0], x[1]))
+  return csv_file
+almacenes = read_csv("almacenes.csv")
+casas = read_csv("casas.csv")
+x, y = np.array(almacenes).T
+x2, y2 = np.array(casas).T
+plt.figure(figsize=(15, 15))
+plt.scatter(x,y, 2, c="red")
+plt.scatter(x2,y2, 2, c="blue")
+plt.show()
+```
+![enter image description here](https://raw.githubusercontent.com/PietroMinaya/cc41_tf_201910362_201718387_201914478_201912855_20181A046/main/ciudad.jpg)
 ### Generacion de la Ciudad
+``` py
+def write_csv(headers, fields, filename):
+  with open(filename, 'w') as f:   
+    write = csv.writer(f)
+    if headers != None: write.writerow(headers)
+    write.writerows(fields)
+
+for i, _ in enumerate(almacenes):
+  almacenes[i].append("A")
+for i, _ in enumerate(casas):
+  casas[i].append("C")
+city = list()
+city.extend(almacenes)
+city.extend(casas)
+city.sort(key = lambda x: (x[0], x[1]))
+write_csv(['x', 'y', 'type'], city, 'city.csv')
+```
 ### Generacion del Grafo de la Ciudad
+``` py
+graph = [[] for _ in city]
+for i, _ in enumerate(city):
+  for j, _ in enumerate(city):
+    if i == j: continue
+    if city[i][0] == city[j][0] or city[i][1] == city[j][1]: graph[i].append(j)
+write_csv(None, graph, 'graph.csv')
+```
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
