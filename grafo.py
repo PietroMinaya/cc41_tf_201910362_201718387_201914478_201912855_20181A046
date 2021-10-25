@@ -36,3 +36,10 @@ city.extend(almacenes)
 city.extend(casas)
 city.sort(key = lambda x: (x[0], x[1]))
 write_csv(['x', 'y', 'type'], city, 'city.csv')
+
+graph = [[] for _ in city]
+for i, _ in enumerate(city):
+  for j, _ in enumerate(city):
+    if i == j: continue
+    if city[i][0] == city[j][0] or city[i][1] == city[j][1]: graph[i].append(j)
+write_csv(None, graph, 'graph.csv')
