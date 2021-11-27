@@ -334,6 +334,19 @@ Una Heuristica es un metrica que nos va ayudar a hacer medicions para estimar lo
 def manhattan_distance(p1, p2):
   return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
 ```
+
+##Solución
+```py
+plt.subplots(figsize=(20, 20))
+plt.ylabel('Eje Y')
+plt.xlabel('Eje Y')
+for grupo in grupos:
+  procesar_grupo_nearest_neighbor(grupo, plt, n_city)
+plt.scatter(almacenes[:, 0], almacenes[:, 1])
+plt.scatter(casas[:, 0], casas[:, 1])
+```
+![enter image description here](https://raw.githubusercontent.com/PietroMinaya/cc41_tf_201910362_201718387_201914478_201912855_20181A046/main/solución.png)
+
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
