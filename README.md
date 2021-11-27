@@ -190,7 +190,7 @@ Topic | Desc
 -|-
 Autor | Adrián Chávez
 Algoritmo | Kruskal
-Complejidad Temporal | O (|E|*log(|V|))
+Complejidad Temporal | O (E*log(V))
 
 El algoritmo de Kruskal es un algoritmo de la teoría de grafos para encontrar un árbol recubridor mínimo en un grafo conexo y ponderado. Es decir, busca un subconjunto de aristas que, formando un árbol, incluyen todos los vértices y donde el valor de la suma de todas las aristas del árbol es el mínimo. Si el grafo no es conexo, entonces busca un bosque expandido mínimo (un árbol expandido mínimo para cada componente conexa).
 #### Codigo Del Algoritmo
