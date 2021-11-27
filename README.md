@@ -335,7 +335,7 @@ def manhattan_distance(p1, p2):
   return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
 ```
 
-##Solución
+## Solución
 ```py
 plt.subplots(figsize=(20, 20))
 plt.ylabel('Eje Y')
@@ -347,55 +347,5 @@ plt.scatter(casas[:, 0], casas[:, 1])
 ```
 ![enter image description here](https://raw.githubusercontent.com/PietroMinaya/cc41_tf_201910362_201718387_201914478_201912855_20181A046/main/solución.png)
 
-## Reporte de Actividades
-### Leyenda de Milestones
-| # Milestone | Nombre |
-|---|---|
-| 1 |  Trabajo Parcial |
-| 2 |  Hito 1 Trabajo Final |
-| 3 |  Hito 2 Trabajo FInal |
-| 4 |  Hito 3 Trabajo Final |
-| 5 |  Hito 4 Trabajo Final |
-| 6 |  Presentacion Trabajo Final |
-### Leyenda de Issues
-| # Issue | Nombre | # Milestone |
-|---|---|---|
-| 1 | Actualizar lista de integrantes | 1 |
-| 2 | Generar Primera Version de Almacenes | 1 |
-| 3 | Generar Primera Version de Puntos de Entrega | 1 |
-| 4 | Verificar que no existan puntos duplicados | 1 |
-| 5 | Generar descripción de datos de vehículos de entrega indicando según su criterio, calculo de costo. | 1 |
-| 6 | Definir espacio de búsqueda, estado inicial, posible estado final, transiciones.  | 1 |
-| 7 | Algoritmo de Dana Vallejos| 1 |
-| 8 | Algoritmo de Pietro Minaya  | 1 |
-| 9 | Algoritmo de Adrian Chavez  | 1 |
-| 10 | Algoritmo de Raquel Chavez  | 1 |
-|  11 | Algoritmo de Bryan Vela | 1 |
-|  12 | Reporte de Actividades | 1 |
-|  13 | Video en Youtube del Github  | 1 |
-|  14 | Elaboracion del grafo  | 2 |
-|  15 | Lectura del csv y generacion del plot del grafo  | 2 |
-|  16 | Generacion de la ciudad con los datos ordenados  | 2 |
-|  17 | Elaboracion del grafo  | 2 |
-### Tabla de Responsabilidades
-| # Issue  |  Pietro  |  Dana |  Bryan |  Raquel | Adrian |
-|---|---|---|---|---|---|
-| 1 | x | x | x | x | x |
-| 2 |   | x |   |   |   |
-| 3 | x |   |   |   |   |
-| 4 |   |   | x |   |   |
-| 5 |   |   |   | x |   |
-| 6 |   |   |   |   | x |
-| 7 |   | x |   |   |   |
-| 8 | x |   |   |   |   |
-| 9 |   |   |   |   | x |
-| 10 |   |   |   | x |   |
-|  11 |   |   | x |   |   |
-|  12 | x |   |   |   |   |
-|  13 | x |   |   |   |   |
-|  14 | x | x | x | x | x |
-|  15 |   |   |   | x | x |
-|  16 |   | x | x |   |   |
-|  17 | x |   |   |   |   |
 ## Videos de Exposicion
 - Trabajo Parcial: [https://youtu.be/Q-11WAOT0Pg](https://youtu.be/Q-11WAOT0Pg)
