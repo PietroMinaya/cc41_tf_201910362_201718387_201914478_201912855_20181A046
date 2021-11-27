@@ -96,9 +96,51 @@ Mi idea para resolver este problema es medir las distancias más cortas entre pu
 Topic | Desc
 -|-
 Autor | Pietro Minaya
-Técnica principal | Divide y Venceras
+Algoritmo | Prim
+Complejidad Temporal | O (n^2)
 
-Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas, ya que por ejemplo para resolver el VRP con 4 zonas debo reslver el VRP de 2 zonas, asi hasta llegar al caso base que seria resolver el VRP de 1 zona y con ello aplicar un algoritmo de pathing que puede ser Djikstra para poder determinar la ruta mas corta para poder unir una zona, y asi para todas las zonas. La complejidad esperada es de: O(|A| log |V|)*|V|
+El algoritmo de Prim es un algoritmo dedicado a encontrar un arbol de expansion minima (MST por sus siglas en ingles), es decir, que va a buscar la forma en la cual poder unir todos los nodos de mi grafo para que se recorra con el menor costo posible. Este algoritmo es ideal para este problema ya que como contamos con carros ilimitados lo que debemos buscar es el MST para conectar todos los puntos con el menor costo posible.
+#### Codigo Del Algoritmo
+```py
+def prim(G):
+  n = len(G)
+  visited = [False]*n
+  path = [-1]*n
+  cost = [math.inf]*n
+  q = [(0, 0)]
+  while q:
+    _, u = hq.heappop(q)
+    if not visited[u]:
+      visited[u] = True
+      for v, w in G[u]:
+        if not visited[v] and w < cost[v]:
+          cost[v] = w
+          path[v] = u
+          hq.heappush(q, (w, v))
+
+  return path, cost
+```
+#### Procesamiento de Grupos con el Algoritmo:
+```py
+def procesar_grupo_prim(grupo, plt=None, ncity=80):
+  nodos = grupo["casas"]
+  nodos.append(grupo["almacen"])
+  label = list()
+  for nodo in nodos:
+    label.append(str(get_node(nodo, ncity)))
+  grafo = [[] for _ in range(len(nodos))]
+  for i, _ in enumerate(nodos):
+    for j, _ in enumerate(nodos):
+      if i == j: continue
+      grafo[i].append((j, manhattan_distance(nodos[i], nodos[j])))
+  path, cost = prim(grafo)
+  if(plt == None): return adjlShow(grafo, weighted=True, path=path, labels=label)
+  else: 
+    for i in range(len(path)):
+      point1 = get_coord(int(label[i]), ncity)
+      point2 = get_coord(int(label[path[i]]), ncity)
+      plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
+```
 ### Adrian Chavez
 Topic | Desc
 -|-
