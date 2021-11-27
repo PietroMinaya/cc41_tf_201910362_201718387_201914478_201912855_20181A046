@@ -285,9 +285,49 @@ def procesar_grupo_bellman_ford(grupo, plt=None, ncity=80):
 Topic | Desc
 -|-
 Autor | Bryan Vela
-Técnica principal | Backtracking
+Algoritmo | Nearest Neighbor
+Complejidad Temporal | O(V*E)
 
-La forma en la cual voy a plantear el problema es asignar a cada casa un almacen, con un algortimo que le asignara un almacen a cada casa que este en un radio de 20 km a la redonda, las casas que queden sobrando se le asignara al almacen mas cercano, una vez ya a todas las casas le haiga asignado un almacen voy a correr el algoritmo de Djikstra para unir todas lascasas al almacen y asi obtener la ruta mas corta que una a todos los puntos. La complejidad esperada es de: O (|A|*|V|2)
+El algoritmo de Nearest Neighbor es un algoritmo voraz de cercania, que su filosofia se encuentra en siempre seguir el enlace con el menor costo posible.
+#### Codigo Del Algoritmo
+```py
+def nearest_neighbor(G):
+  visited = [False for _ in G]
+  path = [-1 for _ in G]
+  path[0] = -1
+  visited[0] = True
+  for node, edge in enumerate(G):
+    min = float("Inf")
+    minV = None
+    for a in edge:
+      if min > a[1]:
+        if visited[a[0]] == False:
+          min = a[1]
+          minV = a[0]
+    if minV:     
+      path[node] = minV
+      visited[minV] = True
+  return path
+```
+#### Procesamiento de Grupos con el Algoritmo:
+```py
+def procesar_grupo_nearest_neighbor(grupo, plt=None, n_city=80):
+  nodos = grupo["casas"]
+  nodos.append(grupo["almacen"])
+  label = list()
+  for nodo in nodos:
+    label.append(str(get_node(nodo, n_city)))
+  grafo = [[] for _ in range(len(nodos))]
+  for i, _ in enumerate(nodos):
+    for j, _ in enumerate(nodos):
+      if i == j: continue
+      grafo[i].append((j, manhattan_distance(nodos[i], nodos[j])))
+  path = nearest_neighbor(grafo)
+  for i in range(len(path)):
+      point1 = get_coord(int(label[i]), n_city)
+      point2 = get_coord(int(label[path[i]]), n_city)
+      plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
+```
 ## Elaboracion del Grafo
 ### Función para generar grafo por un tamaño dado
 ``` py
