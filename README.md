@@ -89,9 +89,53 @@ np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", co
 Topic | Desc
 -|-
 Autor | Dana vallejos
-Técnica principal | Backtracking
+Algoritmo | Djikstra
+Complejidad Temporal | O |E| + |V|*log|V|
 
-Mi idea para resolver este problema es medir las distancias más cortas entre puntos (entre el almacén y los puntos de entrega) y en caso sobrepase una distancia, saltarnos ese punto de entrega y asignarlo al siguiente almacén más cercano. Una vez que llega a zonear todo, se aplica el algoritmo bfs y así unir toda la zona y resolver el problema. La complejidad esperada es de: O (|A|*|V|2)
+La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices; cuando se obtiene el camino más corto desde el vértice origen hasta el resto de los vértices que componen el grafo, el algoritmo se detiene. Se trata de una especialización de la búsqueda de costo uniforme y, como tal, no funciona en grafos con aristas de coste negativo (al elegir siempre el nodo con distancia menor, pueden quedar excluidos de la búsqueda nodos que en próximas iteraciones bajarían el costo general del camino al pasar por una arista con costo negativo)
+#### Codigo Del Algoritmo
+```py
+def dijkstra(G, s):
+  n = len(G)
+  visited = [False]*n
+  path = [None]*n
+  cost = [math.inf]*n
+  cost[s] = 0
+  queue = [(0, s)]
+  while queue:
+    g_u, u = hq.heappop(queue)
+    if not visited[u]:
+      visited[u] = True
+      for v, w in G[u]:
+        f = g_u + w
+        if f < cost[v]:
+          cost[v] = f
+          path[v] = u
+          hq.heappush(queue, (f, v))
+  return path, cost
+```
+#### Procesamiento de Grupos con el Algoritmo:
+```py
+def procesar_grupo_dijkstra(grupo, plt=None, ncity=80):
+  nodos = grupo["casas"]
+  nodos.append(grupo["almacen"])
+  label = list()
+  for nodo in nodos:
+    label.append(str(get_node(nodo, ncity)))
+  grafo = [[] for _ in range(len(nodos))]
+  for i, _ in enumerate(nodos):
+    for j, _ in enumerate(nodos):
+      if i == j: continue
+      grafo[i].append((j, manhattan_distance(nodos[i], nodos[j])))
+  path, cost = dijkstra(grafo, len(nodos) - 1)
+  if(plt == None): return adjlShow(grafo, weighted=True, path=path, labels=label)
+  else: 
+    for i in range(len(path)):
+      point1 = get_coord(int(label[i]), ncity)
+      point2 = get_coord(int(label[path[i]]), ncity)
+      plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
+```
+
 ### Pietro Minaya
 Topic | Desc
 -|-
