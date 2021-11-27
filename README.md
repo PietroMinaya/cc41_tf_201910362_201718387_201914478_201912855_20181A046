@@ -28,12 +28,8 @@ def generar_almacenes(cantidad, n_city):
 ### Generacion del Data Set de Casas
 - La generacion del data set de las casas sera por medio de una funcion, la cual me retornara una lista de listas, estas listas seran los puntos dentro del grafo
 ```python
-%%file casas.py
-import numpy as np
-import numpy.random as npr
-
-def generarCasas(cantidad):
-  casas = npr.randint(0, 2000, (cantidad, 2), dtype=np.int)
+def generarCasas(cantidad, n_city):
+  casas = npr.randint(0, n_city, (cantidad, 2), dtype=np.int)
   return casas
 ```
 ### Verificacion de los puntos duplicados
