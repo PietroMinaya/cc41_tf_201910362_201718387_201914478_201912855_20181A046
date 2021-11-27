@@ -17,10 +17,6 @@
 ### Generacion del Data Set de Almacenes
 - Para generar el data set de los almacenes vamos a usar una funcion en python la cual nos va a retornar una lista de listas, estas listas van a contener 2 elementos [x , y] los cuales me representan a las coordenadas x e y dentro del plano cartesiano respectivamente.
 ```python
-%%file almacenes.py
-import numpy as np
-import numpy.random as npr
-
 def generar_almacenes(cantidad, n_city):
   almacenes = npr.randint(0, n_city, (cantidad, 2), dtype=np.int)
   return almacenes
