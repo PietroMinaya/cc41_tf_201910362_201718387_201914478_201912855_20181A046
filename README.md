@@ -89,53 +89,9 @@ np.savetxt('almacenes.csv', almacenes, fmt="%i", delimiter=",", header="x,y", co
 Topic | Desc
 -|-
 Autor | Dana vallejos
-Algoritmo | Djikstra
-Complejidad Temporal | |E| + |V|*log|V|
+Técnica principal | Backtracking
 
-La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices; cuando se obtiene el camino más corto desde el vértice origen hasta el resto de los vértices que componen el grafo, el algoritmo se detiene. Se trata de una especialización de la búsqueda de costo uniforme y, como tal, no funciona en grafos con aristas de coste negativo (al elegir siempre el nodo con distancia menor, pueden quedar excluidos de la búsqueda nodos que en próximas iteraciones bajarían el costo general del camino al pasar por una arista con costo negativo)
-#### Código del Algoritmo
-```py
-def dijkstra(G, s):
-  n = len(G)
-  visited = [False]*n
-  path = [None]*n
-  cost = [math.inf]*n
-  cost[s] = 0
-  queue = [(0, s)]
-  while queue:
-    g_u, u = hq.heappop(queue)
-    if not visited[u]:
-      visited[u] = True
-      for v, w in G[u]:
-        f = g_u + w
-        if f < cost[v]:
-          cost[v] = f
-          path[v] = u
-          hq.heappush(queue, (f, v))
-  return path, cost
-```
-#### Procesamiento de Grupos con el Algoritmo: -->
-```py
-def procesar_grupo_dijkstra(grupo, plt=None, ncity=80):
-  nodos = grupo["casas"]
-  nodos.append(grupo["almacen"])
-  label = list()
-  for nodo in nodos:
-    label.append(str(get_node(nodo, ncity)))
-  grafo = [[] for _ in range(len(nodos))]
-  for i, _ in enumerate(nodos):
-    for j, _ in enumerate(nodos):
-      if i == j: continue
-      grafo[i].append((j, manhattan_distance(nodos[i], nodos[j])))
-  path, cost = dijkstra(grafo, len(nodos) - 1)
-  if(plt == None): return adjlShow(grafo, weighted=True, path=path, labels=label)
-  else: 
-    for i in range(len(path)):
-      point1 = get_coord(int(label[i]), ncity)
-      point2 = get_coord(int(label[path[i]]), ncity)
-      plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
-
-```
+Mi idea para resolver este problema es medir las distancias más cortas entre puntos (entre el almacén y los puntos de entrega) y en caso sobrepase una distancia, saltarnos ese punto de entrega y asignarlo al siguiente almacén más cercano. Una vez que llega a zonear todo, se aplica el algoritmo bfs y así unir toda la zona y resolver el problema. La complejidad esperada es de: O (|A|*|V|2)
 ### Pietro Minaya
 Topic | Desc
 -|-
@@ -164,7 +120,7 @@ def prim(G):
 
   return path, cost
 ```
-#### Procesamiento de Grupos con el Algoritmo: -->
+#### Procesamiento de Grupos con el Algoritmo:
 ```py
 def procesar_grupo_prim(grupo, plt=None, ncity=80):
   nodos = grupo["casas"]
@@ -189,9 +145,57 @@ def procesar_grupo_prim(grupo, plt=None, ncity=80):
 Topic | Desc
 -|-
 Autor | Adrián Chávez
-Técnica principal | Backtracking
+Algoritmo | Kruskal
+Complejidad Temporal | O (|E|*log(|V|))
 
-Mi idea para resolver la problemática planteada es calcular la distancia más corta entre los nodos, más específico, entre los almacenes y los puntos de entrega. En caso un punto de entrega sobrepase el límite establecido, se salta ese nodo y se asigna al almacén más cercano y, de esta manera, se cubren todos los puntos para aplicar el algoritmo de orden topológico y se puedan unir todas las zonas para tener un panorama completo y resuelto del problema. La complejidad esperada es de: O (|A|*(|V|^2))
+El algoritmo de Kruskal es un algoritmo de la teoría de grafos para encontrar un árbol recubridor mínimo en un grafo conexo y ponderado. Es decir, busca un subconjunto de aristas que, formando un árbol, incluyen todos los vértices y donde el valor de la suma de todas las aristas del árbol es el mínimo. Si el grafo no es conexo, entonces busca un bosque expandido mínimo (un árbol expandido mínimo para cada componente conexa).
+#### Codigo Del Algoritmo
+```py
+def kruskal(G):
+  n = len(G)
+  edges = []
+  for u in range(n):
+    for v, w in G[u]:
+      hq.heappush(edges, (w, u, v))
+  uf = DisjointSet(n)
+  T = []
+  while edges and n > 0:
+    w, u, v = hq.heappop(edges)
+    if not uf.sameset(u, v):
+      uf.union(u, v)
+      T.append((u, v, w))
+      n -= 1
+  return T
+```
+#### Procesamiento de Grupos con el Algoritmo:
+```py
+def procesar_grupo_kruskal(grupo, plt=None, ncity=80):
+  nodos = grupo["casas"]
+  nodos.append(grupo["almacen"])
+  label = list()
+  for nodo in nodos:
+    label.append(str(get_node(nodo, ncity)))
+  label[-1] = str(get_node(nodo, ncity))
+  grafo = [[] for _ in range(len(nodos))]
+  for i, _ in enumerate(nodos):
+    for j, _ in enumerate(nodos):
+      if i == j: continue
+      grafo[i].append((j, manhattan_distance(nodos[i], nodos[j])))
+  T = kruskal(grafo)
+  n = len(grafo)
+  Gp = [[] for _ in range(n)]
+  for u, v, _ in T:
+    Gp[u].append(v)
+    Gp[v].append(u)
+  path = bfs(Gp, 10)
+  if(plt == None): return adjlShow(grafo, weighted=True, path=path, labels=label)
+  else: 
+    for i in range(len(path)):
+      if path[i] == None: continue
+      point1 = get_coord(int(label[i]), ncity)
+      point2 = get_coord(int(label[path[i]]), ncity)
+      plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
+```
 ### Raque Chavez
 Topic | Desc
 -|-
