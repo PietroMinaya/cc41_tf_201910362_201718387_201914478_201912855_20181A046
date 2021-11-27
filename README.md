@@ -329,6 +329,11 @@ plt.scatter(casas[:, 0], casas[:, 1])
 ![enter image description here](https://raw.githubusercontent.com/PietroMinaya/cc41_tf_201910362_201718387_201914478_201912855_20181A046/main/grafo.png)
 ### Heuristica de Manhattan
 Una Heuristica es un metrica que nos va ayudar a hacer medicions para estimar los pesos de nuestros grafos, existen diferentes tipos de Heuristica para dicha tarea como la Euriliana, Euclidiana y la de Manhattan. En este caso elegimos la heuristica de Manhattan ya que esta solo considera movimientos en horizontal y vertical sin considerar movimientos en diagonal, como nuestro grafo solo considera movimientos horizontales y verticales es perfecta para nuestra solución.
+
+```py
+def manhattan_distance(p1, p2):
+  return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
+```
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
