@@ -190,7 +190,7 @@ Topic | Desc
 -|-
 Autor | Adrián Chávez
 Algoritmo | Kruskal
-Complejidad Temporal | O (E*log(V))
+Complejidad Temporal | O (|E|*log(|V|))
 
 El algoritmo de Kruskal es un algoritmo de la teoría de grafos para encontrar un árbol recubridor mínimo en un grafo conexo y ponderado. Es decir, busca un subconjunto de aristas que, formando un árbol, incluyen todos los vértices y donde el valor de la suma de todas las aristas del árbol es el mínimo. Si el grafo no es conexo, entonces busca un bosque expandido mínimo (un árbol expandido mínimo para cada componente conexa).
 #### Codigo Del Algoritmo
@@ -240,12 +240,12 @@ def procesar_grupo_kruskal(grupo, plt=None, ncity=80):
       point2 = get_coord(int(label[path[i]]), ncity)
       plt.plot([point1[0], point2[0]], [point1[1], point2[1]])
 ```
-### Raque Chavez
+### Raquel Chavez
 Topic | Desc
 -|-
 Autor | Raquel Chavez
 Técnica principal | Bellman Ford
-Complejidad Temporal | O (|E|*|V|)
+Complejidad Temporal | O (E*V)
 
 Mi idea para resolver este problema es dividir mi espacio de busqueda por zonas por medio de un algoritmo de fuerza bruta que mida todas las distancias entre todos los puntos de los almacenes y las casas.  Una vez haiga asignado a cada casa a un podria ejecutar un algoritmo de BFS el cual me retorne la ruta mas corta para unir ese "sub grafo". La complejidad esperada seria de 0(|V|^3)
 #### Codigo Del Algoritmo
@@ -345,6 +345,12 @@ for i, _ in enumerate(city):
     if i == j: continue
     if city[i][0] == city[j][0] or city[i][1] == city[j][1]: graph[i].append(j)
 write_csv(None, graph, 'graph.csv')
+```
+### Generacion de los almacenes
+``` py
+def generar_almacenes(cantidad, n_city):
+  almacenes = npr.randint(0, n_city, (cantidad, 2), dtype=np.int)
+  return almacenes
 ```
 ## Reporte de Actividades
 ### Leyenda de Milestones
