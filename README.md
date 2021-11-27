@@ -90,7 +90,7 @@ Topic | Desc
 -|-
 Autor | Dana vallejos
 Algoritmo | Djikstra
-Complejidad Temporal | O (|E| + |V|*log|V|)
+Complejidad Temporal | O (E + V*logV)
 
 La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices; cuando se obtiene el camino más corto desde el vértice origen hasta el resto de los vértices que componen el grafo, el algoritmo se detiene. Se trata de una especialización de la búsqueda de costo uniforme y, como tal, no funciona en grafos con aristas de coste negativo (al elegir siempre el nodo con distancia menor, pueden quedar excluidos de la búsqueda nodos que en próximas iteraciones bajarían el costo general del camino al pasar por una arista con costo negativo)
 #### Codigo Del Algoritmo
