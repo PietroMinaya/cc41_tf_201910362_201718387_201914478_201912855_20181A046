@@ -402,3 +402,4 @@ plt.scatter(casas[:, 0], casas[:, 1])
 
 ## Videos de Exposicion
 - Trabajo Parcial: [https://youtu.be/Q-11WAOT0Pg](https://youtu.be/Q-11WAOT0Pg)
+- Trabajo Final: [https://youtu.be/TvoW5QXIsvg](https://youtu.be/TvoW5QXIsvg)
