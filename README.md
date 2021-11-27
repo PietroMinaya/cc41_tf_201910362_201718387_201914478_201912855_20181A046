@@ -21,8 +21,8 @@
 import numpy as np
 import numpy.random as npr
 
-def generar_almacenes(cantidad):
-  almacenes = npr.randint(0, 2000, (cantidad, 2), dtype=np.int)
+def generar_almacenes(cantidad, n_city):
+  almacenes = npr.randint(0, n_city, (cantidad, 2), dtype=np.int)
   return almacenes
 ```
 ### Generacion del Data Set de Casas
@@ -346,12 +346,7 @@ for i, _ in enumerate(city):
     if city[i][0] == city[j][0] or city[i][1] == city[j][1]: graph[i].append(j)
 write_csv(None, graph, 'graph.csv')
 ```
-### Generacion de los almacenes
-``` py
-def generar_almacenes(cantidad, n_city):
-  almacenes = npr.randint(0, n_city, (cantidad, 2), dtype=np.int)
-  return almacenes
-```
+
 ## Reporte de Actividades
 ### Leyenda de Milestones
 | # Milestone | Nombre |
