@@ -374,7 +374,18 @@ def manhattan_distance(p1, p2):
 
 
 ```py
-
+casas_por_almacen = len(casas) / len(almacenes)
+casas_por_almacen = int(casas_por_almacen)
+n_grupos = len(casas) / casas_por_almacen
+aux_casas = list(casas)
+grupos = []
+grupo = dict()
+for almacen in almacenes:
+  aux_casas.sort(key=lambda casa: manhattan_distance(almacen, casa))
+  grupo["casas"] = aux_casas[:casas_por_almacen]
+  grupo["almacen"] = almacen
+  aux_casas = aux_casas[casas_por_almacen:]
+  grupos.append(grupo.copy())
 ```
 
 ## Solución
